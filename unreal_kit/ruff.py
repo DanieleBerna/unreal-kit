@@ -1,22 +1,6 @@
-try:
-    import tkinter as tk
-    import tkinter.ttk as ttk
-    from tkinter import filedialog
-except ImportError:
-    import Tkinter as tk
-    import ttk
-    import tkFileDialog as filedialog
+import os
+_RAW_FOLDER = "Raw"
 
-_IMPORTABLE_FILETYPES = [("PNG", "*.png"),("JPEG", "*.jpg"),("All files", "*")]
-root = tk.Tk()
-root.withdraw()
-style = ttk.Style(root)
-style.theme_use("vista")
-
-open_file_dialog = filedialog.askopenfilenames( parent=root, initialdir='/', initialfile='tmp', filetypes=_IMPORTABLE_FILETYPES)
-if open_file_dialog:
-    print open_file_dialog
-else:
-    print("No file selected")
-root.destroy()
-
+filename="D:/Works/City20/Raw/Import/Items/Weapons/Bow"
+folders_list = os.path.dirname(filename).split(_RAW_FOLDER)[1].replace(os.sep, '/').split('/')[1:]
+print(folders_list)
